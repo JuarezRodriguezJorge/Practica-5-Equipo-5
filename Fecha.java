@@ -6,7 +6,12 @@ public class Fecha {
 
     // Constructor
     public Fecha(int mes, int dia, int año) {
-        this.mes = mes;
+        if (mes >= 1 && mes <= 12) {
+            this.mes = mes;
+        } else {
+            this.mes = 1;
+        }
+
         this.dia = dia;
         this.año = año;
     }
