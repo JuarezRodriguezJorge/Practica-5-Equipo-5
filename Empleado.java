@@ -8,8 +8,11 @@ public class Empleado {
     public Empleado(String nombre, String apellido, double salarioMensual) {
         this.nombre = nombre;
         this.apellido = apellido;
-        // Se utiliza el setter para validar e inicializar
-        setSalarioMensual(salarioMensual);
+
+        // Validar el salario antes de asignarlo
+        if (salarioMensual > 0.0) {
+            this.salarioMensual = salarioMensual;
+        }
     }
 
     // --- Metodos Getters y Setters ---
