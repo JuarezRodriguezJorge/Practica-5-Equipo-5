@@ -1,50 +1,50 @@
-public class Fecha {
-    // Atributos privados
-    private int mes;
-    private int dia;
-    private int año; 
+public class Empleado {
+    // Atributos privados (encapsulamiento)
+    private String nombre;
+    private String apellido;
+    private double salarioMensual;
 
     // Constructor
-    public Fecha(int mes, int dia, int año) {
-        if (mes >= 1 && mes <= 12) {
-            this.mes = mes;
-        } else {
-            this.mes = 1;
+    public Empleado(String nombre, String apellido, double salarioMensual) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        // Se utiliza el setter para validar e inicializar
+        setSalarioMensual(salarioMensual);
+    }
+
+    // --- Metodos Getters y Setters ---
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public double getSalarioMensual() {
+        return salarioMensual;
+    }
+
+    public void setSalarioMensual(double salarioMensual) {
+        // Validación: Si el salario mensual no es positivo, no se establece su valor
+        if (salarioMensual > 0.0) {
+            this.salarioMensual = salarioMensual;
         }
-
-        this.dia = dia;
-        this.año = año;
     }
 
-    // GETTERS Y SETTERS
+    // --- Método que utiliza getSalarioMensual() en vez de this ---
 
-    public int getMes() {
-        return mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-
-    public int getDia() {
-        return dia;
-    }
-
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public int getAño() { 
-        return año;
-    }
-
-    public void setAño(int año) { 
-        this.año = año;
-    }
-
-    // --- MÉTODOS DE MUESTRA ---
-
-    public void mostrarFecha() {
-        System.out.println(getMes() + "/" + getDia() + "/" + getAño());
+    public double getSalarioAnual() {
+        // Se obtiene el salario mediante el getter
+        return getSalarioMensual() * 12;
     }
 }
