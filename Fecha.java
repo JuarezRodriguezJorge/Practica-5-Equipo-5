@@ -23,7 +23,11 @@ public class Fecha {
     }
 
     public void setMes(int mes) {
-        this.mes = mes;
+        if (mes >= 1 && mes <= 12) {
+            this.mes = mes;
+        } else {
+            this.mes = 1;
+        }
     }
 
     public int getDia() {
