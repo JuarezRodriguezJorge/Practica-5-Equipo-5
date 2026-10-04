@@ -1,7 +1,22 @@
+import java.util.Scanner;
+
 public class MainFecha {
     public static void main(String[] args) {
-        // Crear el objeto Fecha
-        Fecha fecha1 = new Fecha(10, 24, 2026);
+
+        Scanner entrada = new Scanner(System.in);
+
+        // Leer los datos de la fecha
+        System.out.print("Mes: ");
+        int mes = entrada.nextInt();
+
+        System.out.print("Día: ");
+        int dia = entrada.nextInt();
+
+        System.out.print("Año: ");
+        int año = entrada.nextInt();
+
+        // Crear el objeto Fecha con los datos ingresados
+        Fecha fecha1 = new Fecha(mes, dia, año);
 
         // Mostrar fecha inicial
         System.out.print("La fecha inicial es: ");
@@ -20,5 +35,7 @@ public class MainFecha {
 
         System.out.print("Fecha completa actualizada: ");
         fecha1.mostrarFecha();
+
+        entrada.close();
     }
 }
